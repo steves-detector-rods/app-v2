@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Steve's Detector Rods — v2
 
-## Getting Started
+Production rebuild of stevesdetectorrods.com on **Next.js 16 + React 19 + Tailwind CSS**, with Snipcart handling cart and checkout. Hand-built in Norman, OK since 2018.
 
-First, run the development server:
+- **Live (staging):** https://dev.stevesdetectorrods.com
+- **Plan + milestone status:** [`ai-website-rebuild-plan.md`](./ai-website-rebuild-plan.md)
+
+## Stack
+
+- Next.js 16 App Router, TypeScript, SSG where possible
+- Tailwind CSS (custom theme)
+- Snipcart — cart, checkout, payment gateways
+- Fuse.js — client-side product search
+- MDX (`next-mdx-remote`) — blog + policies
+- Formspree — contact form
+- GA4 + Vercel Analytics
+- Hosted on Vercel (free tier)
+
+## Local development
 
 ```bash
+nvm use
+npm install
+cp .env.local.example .env.local
+# fill in Snipcart / Formspree / GA keys
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `npm run dev` — dev server (http://localhost:3000)
+- `npm run build` — production build (Turbopack)
+- `npm run start` — run production build locally
+- `npm run typecheck` — tsc --noEmit
+- `npm run lint` — ESLint
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Layout
 
-## Learn More
+```
+app/           Next.js App Router pages + layouts
+components/    layout · ui · products · filters · home · compatibility · cart · contact · policies
+lib/           products · blog · seo · search · snipcart · filters · compatibility · legacy-redirects
+data/          products (46-SKU TS catalog) · compatibility · testimonials · faq · retailers
+content/       MDX — blog posts + policy pages
+types/         shared TypeScript types
+middleware.ts  301 for /product.php?id=SKU → /products/[slug]
+```
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
