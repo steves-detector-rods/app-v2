@@ -1,0 +1,72 @@
+[
+  {
+    "category": "Ordering & Payment",
+    "question": "What payment methods do you accept?",
+    "answer": "Credit and debit cards (Visa, Mastercard, Amex, Discover), PayPal, Apple Pay, and Google Pay — all handled securely through Stripe at checkout. For wholesale / dealer orders we also accept ACH and postal money orders."
+  },
+  {
+    "category": "Ordering & Payment",
+    "question": "Can I get a custom build that's not listed?",
+    "answer": "Almost always yes. We've built for Tarsacci MDT 8000, obscure Whites models, unusual scoop fitments, and half a dozen unreleased detector prototypes. Use the contact form, describe what you need, and we'll quote it."
+  },
+  {
+    "category": "Ordering & Payment",
+    "question": "Do you offer wholesale pricing for retailers?",
+    "answer": "Yes — we work with 8+ authorized retailers across the US. Contact us with your business details and we'll get you onto our dealer price sheet."
+  },
+  {
+    "category": "Shipping",
+    "question": "How long does shipping take?",
+    "answer": "Standard in-stock items ship in 3–5 business days. Custom builds (Tall Man, counterweight-ready, unusual configurations) are 4–8 weeks depending on queue depth. We email tracking when your order ships."
+  },
+  {
+    "category": "Shipping",
+    "question": "Do you ship internationally?",
+    "answer": "Yes, but warning — international shipping on a 46.5\" scoop handle or full shaft gets expensive, and you'll be responsible for any VAT or import duties in your country. Ask first before checking out if budget matters."
+  },
+  {
+    "category": "Shipping",
+    "question": "Is shipping free?",
+    "answer": "US orders over $149 ship free. Under that, standard US shipping is a flat $12."
+  },
+  {
+    "category": "Products",
+    "question": "Carbon fiber vs glass fiber — which do I need?",
+    "answer": "Carbon fiber is our default and it's the right call for 90% of detectorists. Glass fiber is non-conductive — it's what you want if you detect on saltwater beaches, run a pulse-induction machine in highly mineralized ground, or have noticed false signals that disappear with the factory shaft. We have a full blog post on this."
+  },
+  {
+    "category": "Products",
+    "question": "What's the difference between Steve's and CarbonPro?",
+    "answer": "Same tubes, same cam locks, same hardware — the difference is assembly. Steve's line is hand-assembled in the Norman shop (inspected, torqued, logged); CarbonPro is factory-assembled to the same spec sheet at batch volumes. CarbonPro is $30 less but skips the custom-length option."
+  },
+  {
+    "category": "Products",
+    "question": "Can I get a Tall Man custom length?",
+    "answer": "Yes — it's a $5 surcharge on most of our lower rods and complete shafts. On the product page, pick 'Tall Man' and enter your desired length in inches (up to 30\" for most models, 27 1/4\" for Manticore)."
+  },
+  {
+    "category": "Products",
+    "question": "Is your carbon fiber made in the USA?",
+    "answer": "Yes — we specify 3K twill pre-preg tubes from a US supplier, and every build is assembled in Norman, Oklahoma. The only non-US part in a typical shaft is the cam lock's nylon pellets (from a global supply chain)."
+  },
+  {
+    "category": "CarbonPro",
+    "question": "Why did you launch the CarbonPro line?",
+    "answer": "To offer our engineering at a better price point for buyers who don't care about Steve's-hands-only assembly. The materials and design are identical to our main line."
+  },
+  {
+    "category": "CarbonPro",
+    "question": "Which detectors does CarbonPro cover?",
+    "answer": "Currently Minelab Equinox 600/800 only. We're expanding to the 700/900 and Manticore in 2026."
+  },
+  {
+    "category": "Returns & Warranty",
+    "question": "What's your return policy?",
+    "answer": "30 days from delivery for a full refund on unused standard items. Custom builds (Tall Man, unusual colors, counterweight-ready) are non-returnable unless there's a manufacturing defect — we make them to your spec."
+  },
+  {
+    "category": "Returns & Warranty",
+    "question": "Is there a warranty on the carbon fiber?",
+    "answer": "Lifetime warranty on the carbon-fiber tubes themselves. Hardware (cam locks, end caps, hinges) carries a one-year warranty. Warranty covers manufacturing defects, not user damage — we've seen some creative breaks over the years."
+  }
+]

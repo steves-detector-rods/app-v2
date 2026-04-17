@@ -1,0 +1,32 @@
+{
+  "brands": [
+    { "slug": "minelab", "name": "Minelab", "count": 24 },
+    { "slug": "garrett", "name": "Garrett", "count": 4 },
+    { "slug": "xp", "name": "XP", "count": 5 },
+    { "slug": "tarsacci", "name": "Tarsacci", "count": 2 }
+  ],
+  "modelsByBrand": {
+    "minelab": [
+      { "slug": "equinox-600-800", "name": "Equinox 600/800", "count": 5 },
+      { "slug": "equinox-700-900", "name": "Equinox 700/900", "count": 5 },
+      { "slug": "manticore", "name": "Manticore", "count": 4 },
+      { "slug": "ctx-3030", "name": "CTX 3030", "count": 3 },
+      { "slug": "gold-monster-1000", "name": "Gold Monster 1000", "count": 2 },
+      { "slug": "gpx-6000", "name": "GPX 6000", "count": 2 },
+      { "slug": "gpx-series", "name": "GPX 4500 / 4800 / 5000", "count": 2 },
+      { "slug": "excalibur", "name": "Excalibur", "count": 1 }
+    ],
+    "garrett": [
+      { "slug": "at-series", "name": "AT-Series (AT Pro, AT Max, AT Gold)", "count": 2 },
+      { "slug": "ace-series", "name": "Ace-Series", "count": 1 },
+      { "slug": "vortex", "name": "Vortex", "count": 1 }
+    ],
+    "xp": [
+      { "slug": "deus-ii", "name": "Deus II", "count": 3 },
+      { "slug": "deus", "name": "Deus / ORX", "count": 2 }
+    ],
+    "tarsacci": [
+      { "slug": "mdt-8000", "name": "MDT 8000", "count": 1 }
+    ]
+  }
+}
