@@ -70,19 +70,21 @@ export default function RootLayout({
           <Footer />
           <SearchOverlay />
         </CartProvider>
-        <Script
-          id="snipcart-settings"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `window.SnipcartSettings = { publicApiKey: ${JSON.stringify(SNIPCART_KEY)}, modalStyle: "side", version: "3.6.1" };`,
-          }}
-        />
-        <Script
-          async
-          src="https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.js"
-          strategy="afterInteractive"
-        />
-        <div hidden id="snipcart" />
+        {SNIPCART_KEY && (
+          <>
+            <Script
+              async
+              src="https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.js"
+              strategy="afterInteractive"
+            />
+            <div
+              hidden
+              id="snipcart"
+              data-api-key={SNIPCART_KEY}
+              data-config-modal-style="side"
+            />
+          </>
+        )}
         {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
       </body>
     </html>
