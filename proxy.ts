@@ -5,9 +5,9 @@ import { PRODUCT_ID_TO_SLUG } from "@/lib/legacy-redirects";
  * Catches the old PHP site's `?id=<SKU>` URLs on /product.php and /product2.php
  * and issues a 301 to the new /products/[slug] route. `next.config.mjs` handles
  * all the path-based redirects; query-param matching isn't natively supported
- * in Next's redirects config, hence this middleware.
+ * in Next's redirects config, hence this proxy.
  */
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
 
   if (pathname === "/product.php" || pathname === "/product2.php") {
