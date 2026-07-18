@@ -10,6 +10,26 @@ const nextConfig = {
     root: __dirname,
   },
 
+  // Keep the staging host and Vercel preview URLs out of search indexes.
+  // Scoped by host so the production domain stays indexable after cutover —
+  // a robots.txt Disallow wouldn't drop already-indexed pages, but this
+  // noindex header will as Google/Bing re-crawl them.
+  async headers() {
+    const noindex = [{ key: "X-Robots-Tag", value: "noindex, nofollow" }];
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "dev.stevesdetectorrods.com" }],
+        headers: noindex,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "(?<vercel>.*)\\.vercel\\.app" }],
+        headers: noindex,
+      },
+    ];
+  },
+
   // 301 redirects from the old PHP site's fixed paths.
   // Query-param-based redirects (e.g. /product.php?id=EQ.CS-01) are handled in
   // middleware.ts since Next.js redirect() can't match on search params.
