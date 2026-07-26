@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import faqData from "@/data/faq.json";
 import { Accordion } from "@/components/ui/Accordion";
+import { faqJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "FAQ — Ordering, shipping, products",
@@ -25,22 +26,11 @@ const CATEGORIES = [
 ];
 
 export default function FAQPage() {
-  // FAQ JSON-LD for Google rich results
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: FAQ.map((f) => ({
-      "@type": "Question",
-      name: f.question,
-      acceptedAnswer: { "@type": "Answer", text: f.answer },
-    })),
-  };
-
   return (
     <div className="bg-surface">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: faqJsonLd(FAQ) }}
       />
 
       <div

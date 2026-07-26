@@ -45,7 +45,7 @@ const SCOOP_HANDLE_BASE_SPECS: Record<string, string> = {
   "Overall Length": "46 1/2 in.",
   "Lower Reinforcement": "ABS plastic core, lower 6 in.",
   "Fill": "Closed-cell foam (remainder)",
-  "Grip": "Textured sharkskin PVC",
+  "Grip": "Textured non-slip PVC",
   "Hardware": "All stainless steel",
   "Country of Origin": "USA — Norman, Oklahoma",
 };
@@ -1058,7 +1058,7 @@ function makeScoopHandle(input: {
       availabilityNote: "In Stock — Ships in 3–5 business days",
       rating,
       reviews,
-      blurb: '46.5" overall. 2.5mm wall, ABS reinforcement, foam fill, sharkskin grip.',
+      blurb: '46.5" overall. 2.5mm wall, ABS reinforcement, foam fill, non-slip grip.',
       specs: SCOOP_HANDLE_BASE_SPECS,
       tags: ["scoop-handle", brand.toLowerCase().replace(/[^a-z0-9]+/g, "-")],
     },

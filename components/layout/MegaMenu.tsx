@@ -99,8 +99,8 @@ const CATS: ProductCat[] = [
   {
     slug: "scoop-handle",
     name: "Sand Scoop Handles",
-    desc: "Fits 8+ scoop brands",
-    href: "/products?type=scoop-handle",
+    desc: "Carbon handles for 8 scoop brands",
+    href: "/sand-scoop-handles",
   },
   {
     slug: "accessory",

@@ -19,10 +19,10 @@ const CATS = [
   },
   {
     slug: "scoop-handle",
-    name: "Scoop Handles",
-    desc: 'Heavy-duty 46.5" handles for 9 sand-scoop brands.',
+    name: "Sand Scoop Handles",
+    desc: 'Heavy-duty 46.5" carbon handles for 8 sand-scoop brands.',
     count: 9,
-    href: "/products?type=scoop-handle",
+    href: "/sand-scoop-handles",
   },
   {
     slug: "accessory",

@@ -67,6 +67,53 @@ export function breadcrumbJsonLd(items: Array<{ label: string; href?: string }>)
   });
 }
 
+export function faqJsonLd(items: Array<{ question: string; answer: string }>): string {
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  });
+}
+
+/** Collection/category listing — tells Google these products belong together. */
+export function itemListJsonLd(params: {
+  name: string;
+  description: string;
+  url: string;
+  products: Product[];
+}): string {
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: params.name,
+    description: params.description,
+    url: `${SITE_URL}${params.url}`,
+    numberOfItems: params.products.length,
+    itemListElement: params.products.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "Product",
+        name: p.name,
+        sku: p.sku,
+        url: `${SITE_URL}/products/${p.slug}`,
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "USD",
+          price: p.priceFrom,
+          availability: p.inStock
+            ? "https://schema.org/InStock"
+            : "https://schema.org/PreOrder",
+        },
+      },
+    })),
+  });
+}
+
 export function articleJsonLd(params: {
   title: string;
   slug: string;
