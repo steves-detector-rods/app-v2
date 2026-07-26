@@ -148,6 +148,42 @@ export function FinderFlow() {
                 </button>
               ))}
             </div>
+
+            {/* Unsupported makes — capture the lead instead of dead-ending them. */}
+            <div
+              className="bg-surface border border-border"
+              style={{
+                padding: 36,
+                marginTop: 20,
+                borderLeft: "3px solid #B8452F",
+              }}
+            >
+              <div
+                className="font-sans font-semibold text-text"
+                style={{ fontSize: 20, letterSpacing: "-0.01em", marginBottom: 10 }}
+              >
+                Don&apos;t see your detector?
+              </div>
+              <p
+                className="text-text-muted"
+                style={{
+                  fontSize: 15,
+                  lineHeight: 1.65,
+                  maxWidth: 680,
+                  marginBottom: 22,
+                }}
+              >
+                Nokta, Fisher, Teknetics, Whites, Quest — we don&apos;t stock shelf parts for
+                every machine, but Steve builds one-offs regularly. Send him the make, the
+                model, and a few measurements or photos of where the rod mounts, and
+                he&apos;ll tell you what he can do.
+              </p>
+              <Link href="/custom-build?kind=detector">
+                <Button variant="primary">
+                  Request a custom build <Icon name="arrowR" size={12} />
+                </Button>
+              </Link>
+            </div>
           </div>
         )}
 
@@ -263,7 +299,7 @@ export function FinderFlow() {
                 <p className="text-text-muted mb-4">
                   No prebuilt SKUs for this model yet — but we likely can custom-build.
                 </p>
-                <Link href="/contact">
+                <Link href="/custom-build?kind=detector">
                   <Button variant="primary">Request a custom build</Button>
                 </Link>
               </div>
@@ -311,7 +347,7 @@ export function FinderFlow() {
                       counterweight-ready configs.
                     </div>
                   </div>
-                  <Link href="/contact">
+                  <Link href="/custom-build?kind=detector">
                     <Button variant="secondary">
                       Request a custom build <Icon name="arrowR" size={12} />
                     </Button>
