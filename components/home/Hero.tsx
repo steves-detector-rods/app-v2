@@ -95,7 +95,7 @@ export function Hero() {
         className="relative mx-auto"
         style={{ maxWidth: 1440, padding: "120px 24px 140px", zIndex: 2 }}
       >
-        <div style={{ maxWidth: 720 }}>
+        <div style={{ maxWidth: 820 }}>
           <div
             className="font-mono text-[11px] uppercase mb-5.5"
             style={{ color: "#B8452F", letterSpacing: "0.25em", marginBottom: 22 }}
@@ -105,7 +105,7 @@ export function Hero() {
           <h1
             className="font-sans font-bold text-balance mb-6"
             style={{
-              fontSize: 72,
+              fontSize: "clamp(30px, 5vw, 72px)",
               lineHeight: 1.02,
               letterSpacing: "-0.03em",
               marginBottom: 24,
@@ -114,6 +114,8 @@ export function Hero() {
             Precision-built
             <br />
             <span style={{ color: "#B8452F" }}>carbon-fiber shafts</span>
+            <br />
+            <span style={{ color: "#B8452F" }}>&amp; sand scoop handles</span>
             <br />
             for serious detectorists.
           </h1>

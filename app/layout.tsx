@@ -26,15 +26,15 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://stevesdetectorrods.com"),
   title: {
-    default: "Steve's Detector Rods — Hand-built carbon-fiber shafts",
+    default: "Steve's Detector Rods — Carbon-fiber shafts & sand scoop handles",
     template: "%s | Steve's Detector Rods",
   },
   description:
-    "Precision-built carbon-fiber and glass-fiber shafts for 14 metal detector models across Minelab, Garrett, XP, and Tarsacci. Hand-assembled in Norman, Oklahoma.",
+    "Precision-built carbon-fiber and glass-fiber shafts for 14 metal detector models across Minelab, Garrett, XP, and Tarsacci, plus carbon sand scoop handles for 8 scoop brands. Hand-assembled in Norman, Oklahoma.",
   openGraph: {
     title: "Steve's Detector Rods",
     description:
-      "Hand-built carbon-fiber shafts for serious detectorists.",
+      "Hand-built carbon-fiber shafts and sand scoop handles for serious detectorists.",
     url: "https://stevesdetectorrods.com",
     siteName: "Steve's Detector Rods",
     locale: "en_US",

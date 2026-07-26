@@ -48,7 +48,7 @@ const nextConfig = {
       { source: "/EQUINOX700900LOWERONLY.php", destination: "/detectors/minelab/equinox-700-900", permanent: true },
       { source: "/EQUINOXCOMPLETESHAFTcomingsoon.php", destination: "/detectors/minelab/equinox-600-800", permanent: true },
       { source: "/DEUSCOMPLETE.php", destination: "/products/xp-deus-ii-complete-shaft", permanent: true },
-      { source: "/SCOOPHANDLES.php", destination: "/products?type=scoop-handle", permanent: true },
+      { source: "/SCOOPHANDLES.php", destination: "/sand-scoop-handles", permanent: true },
       { source: "/GARRETTLOWER.php", destination: "/products/garrett-at-ace-two-piece-shaft", permanent: true },
     ];
   },

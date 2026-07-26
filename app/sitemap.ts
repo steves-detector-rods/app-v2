@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { getAllProducts } from "@/lib/products";
 import { getAllPosts } from "@/lib/blog";
 import { BRANDS, MODELS_BY_BRAND } from "@/lib/compatibility";
+import { getAllScoopBrands } from "@/lib/scoop-brands";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://stevesdetectorrods.com";
 
@@ -12,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/products",
     "/find-your-shaft",
     "/carbonpro",
+    "/sand-scoop-handles",
     "/about",
     "/blog",
     "/faq",
@@ -49,6 +51,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ]);
 
+  const scoopBrandRoutes: MetadataRoute.Sitemap = getAllScoopBrands().map((b) => ({
+    url: `${SITE_URL}/sand-scoop-handles/${b.slug}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }));
+
   const blogRoutes: MetadataRoute.Sitemap = getAllPosts().map((p) => ({
     url: `${SITE_URL}/blog/${p.slug}`,
     lastModified: new Date(p.frontmatter.date),
@@ -56,5 +65,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...productRoutes, ...detectorRoutes, ...blogRoutes];
+  return [
+    ...staticRoutes,
+    ...productRoutes,
+    ...detectorRoutes,
+    ...scoopBrandRoutes,
+    ...blogRoutes,
+  ];
 }

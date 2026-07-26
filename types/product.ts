@@ -94,6 +94,29 @@ export interface Compatibility {
   modelsByBrand: Record<BrandSlug, Model[]>;
 }
 
+export interface ScoopBrandFaq {
+  id: string;
+  question: string;
+  answer: string;
+}
+
+/** A third-party sand-scoop brand we build replacement handles for. */
+export interface ScoopBrand {
+  slug: string;
+  name: string;
+  fullName: string;
+  productSlugs: string[];
+  metaTitle: string;
+  metaDescription: string;
+  tagline: string;
+  heroHeadline: string;
+  intro: string;
+  useCase: string;
+  fitment: string[];
+  whyUpgrade: string[];
+  faq: ScoopBrandFaq[];
+}
+
 export interface Testimonial {
   quote: string;
   name: string;

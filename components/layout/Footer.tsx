@@ -58,7 +58,7 @@ export function Footer() {
               className="text-[13px] mb-5"
               style={{ color: "#888", lineHeight: 1.6, maxWidth: 300 }}
             >
-              Precision-built carbon-fiber and glass-fiber shafts, hand-assembled in Norman, Oklahoma since 2018.
+              Precision-built carbon-fiber shafts and sand scoop handles, hand-assembled in Norman, Oklahoma since 2018.
             </p>
             <div className="flex gap-2.5">
               {(["fb", "yt", "ig"] as const).map((s) => (
@@ -80,7 +80,7 @@ export function Footer() {
               ["Complete Shafts", "/products?type=complete-shaft"],
               ["Lower Rods", "/products?type=lower-rod"],
               ["Two-Piece Lowers", "/products?type=two-piece"],
-              ["Scoop Handles", "/products?type=scoop-handle"],
+              ["Sand Scoop Handles", "/sand-scoop-handles"],
               ["Accessories", "/products?type=accessory"],
               ["Glass-Fiber", "/products?material=glass-fiber"],
             ]}
