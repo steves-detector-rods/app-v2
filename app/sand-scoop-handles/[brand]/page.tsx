@@ -270,7 +270,7 @@ export default async function ScoopBrandPage({ params }: PageProps) {
           >
             Running something else? These are the brands we stock handles for, not the
             limit of what Steve can build.{" "}
-            <Link href="/contact" className="text-accent">
+            <Link href="/custom-build?kind=scoop" className="text-accent">
               Send him the make and the mount dimensions
             </Link>{" "}
             and he&apos;ll tell you whether a one-off is possible.

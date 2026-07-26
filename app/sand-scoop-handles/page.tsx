@@ -479,7 +479,7 @@ export default function SandScoopHandlesPage() {
                 </p>
               </div>
               <Link
-                href="/contact"
+                href="/custom-build?kind=scoop"
                 prefetch={false}
                 className="font-mono uppercase inline-flex items-center gap-2 no-underline"
                 style={{
