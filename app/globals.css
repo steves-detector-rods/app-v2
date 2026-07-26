@@ -1,66 +1,171 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-html, body {
-  background: #F3F1E8;
-  color: #14151E;
-  -webkit-font-smoothing: antialiased;
+/* v4 auto-detects content from the project root. `.claude/` holds Claude Code
+   worktrees — full duplicate source trees that would otherwise be rescanned. */
+@source not "../.claude";
+
+@theme {
+  --color-bg: #f3f1e8;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f3f1e8;
+  --color-ink: #0a0b10;
+  --color-ink-soft: #0f1018;
+  --color-ink-panel: #141520;
+  --color-ink-line: #1a1a24;
+  --color-ink-line-soft: #1e1f28;
+  --color-ink-hi: #cdcbbf;
+  --color-ink-lo: #888888;
+  --color-ink-lo-2: #555555;
+  --color-text: #14151e;
+  --color-text-muted: #6a6b73;
+  --color-border: #e3e1d6;
+  --color-accent: #b8452f;
+  --color-accent-hover: #9a3624;
+  --color-accent-soft: #faf5e8;
+  --color-success: #2f7d4f;
+  --color-success-dot: #5bb06b;
+  --color-warn: #c89b3c;
+  --color-carbonpro: #1e3a5f;
+
+  --font-sans: var(--font-inter), Inter, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), JetBrains Mono, ui-monospace, monospace;
+
+  --tracking-meta: 0.08em;
+  --tracking-label: 0.1em;
+  --tracking-eyebrow: 0.25em;
+
+  --radius: 0;
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --radius-pill: 9999px;
+
+  --shadow-card: 0 8px 24px -12px rgba(10, 11, 16, 0.18);
+  --shadow-drawer: -20px 0 60px -20px rgba(0, 0, 0, 0.25);
+  --shadow-glow:
+    0 40px 80px -10px rgba(0, 0, 0, 0.8), 0 0 120px 20px rgba(184, 69, 47, 0.18);
+
+  --container-page: 1440px;
+
+  --text-display: 72px;
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.03em;
+  --text-h1: 56px;
+  --text-h1--line-height: 1.05;
+  --text-h1--letter-spacing: -0.02em;
+  --text-h2: 48px;
+  --text-h2--line-height: 1.05;
+  --text-h2--letter-spacing: -0.02em;
+
+  --animate-slideIn: slideIn 0.25s ease;
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
 }
 
-::selection {
-  background: #B8452F;
-  color: #F3F1E8;
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
 }
 
-/* Custom select chevron */
-select.sdr-select {
-  appearance: none;
-  -webkit-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2314151E' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  padding-right: 32px;
+@utility text-balance {
+  text-wrap: balance;
 }
 
-input:focus, select:focus, textarea:focus {
-  outline: none;
-  border-color: #B8452F !important;
+@utility text-pretty {
+  text-wrap: pretty;
 }
-
-/* Card hover-lift */
-.hover-lift {
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-}
-.hover-lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px -12px rgba(10, 11, 16, 0.18);
-  border-color: #B8452F !important;
-}
-
-/* Snipcart theme overrides — match our design system */
-.snipcart-modal { font-family: var(--font-inter), Inter, sans-serif !important; }
-/* Cart drawer must sit above the sticky nav (z-50) and any other site chrome.
-   Snipcart's default base stacking is low; bump both the modal and its overlay. */
-.snipcart,
-.snipcart-modal,
-.snipcart-modal__container,
-.snipcart-cart,
-.snipcart-layout,
-.snipcart-layout__content {
-  z-index: 200 !important;
-}
-.snipcart-cart-button--highlight,
-.snipcart-button-primary {
-  background-color: #B8452F !important;
-  color: #0A0B10 !important;
-  border-radius: 0 !important;
-}
-.snipcart-button-primary:hover { background-color: #9A3624 !important; }
-.snipcart-cart-header { background-color: #0A0B10 !important; }
-.snipcart-checkout__total { color: #14151E !important; }
 
 @layer utilities {
-  .text-balance { text-wrap: balance; }
-  .text-pretty { text-wrap: pretty; }
+  html,
+  body {
+    background: #f3f1e8;
+    color: #14151e;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: #b8452f;
+    color: #f3f1e8;
+  }
+
+  /* Custom select chevron */
+  select.sdr-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2314151E' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #b8452f !important;
+  }
+
+  /* Card hover-lift */
+  .hover-lift {
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.18s ease,
+      border-color 0.18s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -12px rgba(10, 11, 16, 0.18);
+    border-color: #b8452f !important;
+  }
+
+  /* Snipcart theme overrides — match our design system */
+  .snipcart-modal {
+    font-family: var(--font-inter), Inter, sans-serif !important;
+  }
+  /* Cart drawer must sit above the sticky nav (z-50) and any other site chrome.
+   Snipcart's default base stacking is low; bump both the modal and its overlay. */
+  .snipcart,
+  .snipcart-modal,
+  .snipcart-modal__container,
+  .snipcart-cart,
+  .snipcart-layout,
+  .snipcart-layout__content {
+    z-index: 200 !important;
+  }
+  .snipcart-cart-button--highlight,
+  .snipcart-button-primary {
+    background-color: #b8452f !important;
+    color: #0a0b10 !important;
+    border-radius: 0 !important;
+  }
+  .snipcart-button-primary:hover {
+    background-color: #9a3624 !important;
+  }
+  .snipcart-cart-header {
+    background-color: #0a0b10 !important;
+  }
+  .snipcart-checkout__total {
+    color: #14151e !important;
+  }
 }

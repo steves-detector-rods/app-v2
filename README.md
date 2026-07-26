@@ -34,6 +34,22 @@ npm run dev
 - `npm run typecheck` — tsc --noEmit
 - `npm run lint` — ESLint
 
+## Dependency notes
+
+Three deliberate constraints, all pending upstream fixes — check before "upgrading" them:
+
+- **`typescript` held at 6.x.** TS 7 typechecks and builds fine here, but `typescript-eslint`
+  hard-refuses TS 7.0 (`typescript-eslint does not support TS 7.0`), which breaks `npm run lint`
+  outright. Revisit when typescript-eslint ships TS 7 support.
+- **`eslint` held at 9.x.** ESLint 10 crashes via `eslint-plugin-react` (pulled in by
+  `eslint-config-next`), which still calls the removed `context.getFilename()` and peers at
+  `eslint ^9.7`. No compatible release exists yet.
+- **`overrides.next`** lifts `postcss` and `sharp` off Next's own pins (8.4.31 / ^0.34.5), both of
+  which carry high-severity advisories. Scoped to Next's subtree so unrelated dependents are
+  unaffected. Drop once Next ships updated pins. `sharp` 0.35 is why `engines.node` is `>=20.9.0`.
+  `brace-expansion` is deliberately *not* overridden — v5 changed its export shape and breaks
+  minimatch/eslint; that advisory clears with ESLint 10.
+
 ## Layout
 
 ```

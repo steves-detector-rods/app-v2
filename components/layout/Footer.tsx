@@ -10,10 +10,7 @@ interface FooterColProps {
 function FooterCol({ title, items }: FooterColProps) {
   return (
     <div>
-      <div
-        className="font-semibold text-[13px] uppercase mb-4 text-bg"
-        style={{ letterSpacing: "0.1em" }}
-      >
+      <div className="font-semibold text-[13px] uppercase mb-4 text-bg tracking-label">
         {title}
       </div>
       <div className="flex flex-col gap-2.5">
@@ -40,10 +37,7 @@ export function Footer() {
       style={{ background: "#0A0B10", color: "#CDCBBF", marginTop: 120 }}
     >
       <div className="mx-auto" style={{ maxWidth: 1440, padding: "64px 24px 20px" }}>
-        <div
-          className="grid gap-12 pb-12 border-b border-ink-line"
-          style={{ gridTemplateColumns: "1.3fr 1fr 1fr 1fr 1.4fr" }}
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr_1.4fr] gap-8 lg:gap-12 pb-12 border-b border-ink-line">
           <div>
             <div className="flex items-center gap-2.5 mb-4">
               <div
@@ -111,11 +105,8 @@ export function Footer() {
               ["Shipping & Returns", "/policies/shipping"],
             ]}
           />
-          <div>
-            <div
-              className="font-semibold text-[13px] uppercase mb-4 text-bg"
-              style={{ letterSpacing: "0.1em" }}
-            >
+          <div className="sm:col-span-2 lg:col-span-1">
+            <div className="font-semibold text-[13px] uppercase mb-4 text-bg tracking-label">
               Newsletter
             </div>
             <p

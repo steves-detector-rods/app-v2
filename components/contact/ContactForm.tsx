@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { BRANDS, MODELS_BY_BRAND } from "@/lib/compatibility";
 import { getProductBySlug } from "@/lib/products";
@@ -30,17 +30,13 @@ export function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState(product ? "Custom build request" : SUBJECTS[0]);
-  const [detector, setDetector] = useState("");
+  const [detector, setDetector] = useState(
+    product?.compat[0] ? `${product.compat[0].brand}|${product.compat[0].model}` : ""
+  );
   const [message, setMessage] = useState(
     product ? `Looking for a custom build based on your ${product.shortName} (${product.sku}).\n\n` : ""
   );
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-
-  useEffect(() => {
-    if (product && !detector && product.compat[0]) {
-      setDetector(`${product.compat[0].brand}|${product.compat[0].model}`);
-    }
-  }, [product, detector]);
 
   async function submit(e: FormEvent) {
     e.preventDefault();

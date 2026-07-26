@@ -18,7 +18,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
     <>
       <div
         onClick={onClose}
-        className="fixed inset-0 md:hidden transition-opacity duration-200"
+        className="fixed inset-0 lg:hidden transition-opacity duration-200"
         style={{
           background: "#000",
           opacity: open ? 0.5 : 0,
@@ -27,7 +27,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
         }}
       />
       <div
-        className="fixed inset-y-0 right-0 flex flex-col md:hidden transition-transform duration-250 ease-out text-bg"
+        className="fixed inset-y-0 right-0 flex flex-col lg:hidden transition-transform duration-250 ease-out text-bg"
         style={{
           width: 340,
           maxWidth: "100vw",
@@ -41,7 +41,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
           className="flex justify-between items-center border-b border-ink-line"
           style={{ padding: "20px 24px" }}
         >
-          <div className="font-mono text-[11px] tracking-[0.25em] uppercase" style={{ color: "#888" }}>
+          <div className="font-mono text-[11px] tracking-eyebrow uppercase" style={{ color: "#888" }}>
             Menu
           </div>
           <button

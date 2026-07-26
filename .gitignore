@@ -37,3 +37,5 @@ next-env.d.ts
 
 # Claude Code per-user settings (permission allowlist etc.)
 .claude/settings.local.json
+# Linked worktrees — duplicate source trees, never part of a commit
+.claude/worktrees/
