@@ -1,5 +1,10 @@
 import type { ColorSlug, Product } from "@/types/product";
 
+/** Pinned Snipcart theme version. The CSS and JS URLs must stay in lockstep. */
+export const SNIPCART_VERSION = "3.6.1";
+export const SNIPCART_CSS_URL = `https://cdn.snipcart.com/themes/v${SNIPCART_VERSION}/default/snipcart.css`;
+export const SNIPCART_JS_URL = `https://cdn.snipcart.com/themes/v${SNIPCART_VERSION}/default/snipcart.js`;
+
 function capitalize(s: string): string {
   return s.charAt(0).toUpperCase() + s.slice(1);
 }

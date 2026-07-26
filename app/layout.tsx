@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
+import { SNIPCART_CSS_URL } from "@/lib/snipcart";
 import { CartProvider } from "@/components/cart/CartProvider";
+import { SnipcartLoader } from "@/components/cart/SnipcartLoader";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
@@ -43,7 +44,6 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-const SNIPCART_KEY = process.env.NEXT_PUBLIC_SNIPCART_API_KEY ?? "";
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "";
 
 export default function RootLayout({
@@ -54,12 +54,12 @@ export default function RootLayout({
       <head>
         <link
           rel="preload"
-          href="https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.css"
+          href={SNIPCART_CSS_URL}
           as="style"
         />
         <link
           rel="stylesheet"
-          href="https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.css"
+          href={SNIPCART_CSS_URL}
         />
       </head>
       <body className="font-sans bg-bg text-text antialiased" suppressHydrationWarning>
@@ -70,21 +70,7 @@ export default function RootLayout({
           <Footer />
           <SearchOverlay />
         </CartProvider>
-        {SNIPCART_KEY && (
-          <>
-            <Script
-              async
-              src="https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.js"
-              strategy="afterInteractive"
-            />
-            <div
-              hidden
-              id="snipcart"
-              data-api-key={SNIPCART_KEY}
-              data-config-modal-style="side"
-            />
-          </>
-        )}
+        <SnipcartLoader />
         {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
       </body>
     </html>
