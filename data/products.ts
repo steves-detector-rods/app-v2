@@ -1072,6 +1072,5 @@ export const PRODUCTS: Product[] = seed.map((p) => ({
 
 // Quick integrity check — 46 expected
 if (PRODUCTS.length !== 46) {
-  // eslint-disable-next-line no-console
   console.warn(`Product catalog has ${PRODUCTS.length} entries (expected 46)`);
 }

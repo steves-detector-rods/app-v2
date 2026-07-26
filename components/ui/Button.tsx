@@ -44,7 +44,7 @@ export function Button({
       {...rest}
       disabled={disabled}
       className={clsx(
-        "inline-flex items-center justify-center gap-2 font-semibold uppercase tracking-[0.08em] font-sans transition-colors duration-150",
+        "inline-flex items-center justify-center gap-2 font-semibold uppercase tracking-meta font-sans transition-colors duration-150",
         small ? "text-xs py-2 px-3.5" : "text-[13px] py-3.5 px-5.5",
         full ? "w-full" : "",
         disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer",

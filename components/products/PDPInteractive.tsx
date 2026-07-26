@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import type { Product, ColorSlug } from "@/types/product";
 import { ColorSwatch } from "@/components/ui/ColorSwatch";
-import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { AvailDot } from "@/components/ui/AvailDot";
 import { Stars } from "@/components/ui/Stars";

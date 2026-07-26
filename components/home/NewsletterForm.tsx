@@ -28,7 +28,7 @@ export function NewsletterForm({ inFooter = false }: NewsletterFormProps) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="your@email.com"
-          className="flex-1 bg-transparent border-none outline-none"
+          className="flex-1 bg-transparent border-none outline-hidden"
           style={{ padding: "10px 12px", fontSize: 13, color: "#F3F1E8" }}
         />
         <button

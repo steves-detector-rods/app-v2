@@ -16,7 +16,7 @@ export function FilterCheck({ label, count, checked, onChange }: FilterCheckProp
       style={{ padding: "3px 0" }}
     >
       <div
-        className="flex items-center justify-center flex-shrink-0"
+        className="flex items-center justify-center shrink-0"
         style={{
           width: 16,
           height: 16,

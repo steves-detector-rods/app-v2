@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { useCart } from "@/components/cart/CartProvider";
@@ -8,22 +8,21 @@ import { search } from "@/lib/search";
 import { Icon } from "@/components/ui/Icon";
 import { WeavePlaceholder } from "@/components/ui/WeavePlaceholder";
 
+const subscribeNoop = () => () => {};
+
 export function SearchOverlay() {
   const { searchOpen, closeSearch, openSearch } = useCart();
-  const [q, setQ] = useState("");
-  const [mounted, setMounted] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const results = useMemo(() => search(q, 6), [q]);
 
   // Wait for client mount before creating the portal. This prevents both
   // SSR/CSR hydration mismatches *and* the `insertBefore` crash caused by
   // third-party scripts (Snipcart, browser extensions) mutating the body DOM
   // around us. Portaling straight to document.body sidesteps React's sibling
   // bookkeeping in the CartProvider subtree.
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+    subscribeNoop,
+    () => true,
+    () => false
+  );
 
   // ⌘K / Ctrl+K to open, Esc to close
   useEffect(() => {
@@ -40,19 +39,24 @@ export function SearchOverlay() {
     return () => document.removeEventListener("keydown", onKey);
   }, [searchOpen, openSearch, closeSearch]);
 
-  // Focus input when overlay opens
-  useEffect(() => {
-    if (searchOpen) {
-      const t = setTimeout(() => inputRef.current?.focus(), 50);
-      return () => clearTimeout(t);
-    } else {
-      setQ("");
-    }
-  }, [searchOpen]);
-
   if (!searchOpen || !mounted) return null;
 
-  return createPortal(
+  return createPortal(<SearchPanel closeSearch={closeSearch} />, document.body);
+}
+
+// Mounted only while the overlay is open, so the query resets on close for free.
+function SearchPanel({ closeSearch }: { closeSearch: () => void }) {
+  const [q, setQ] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const results = useMemo(() => search(q, 6), [q]);
+
+  useEffect(() => {
+    const t = setTimeout(() => inputRef.current?.focus(), 50);
+    return () => clearTimeout(t);
+  }, []);
+
+  return (
     <div
       className="fixed inset-0"
       style={{
@@ -86,7 +90,7 @@ export function SearchOverlay() {
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="Search shafts, detectors, SKUs…"
-          className="w-full bg-transparent border-none outline-none font-sans"
+          className="w-full bg-transparent border-none outline-hidden font-sans"
           style={{
             borderBottom: "2px solid #B8452F",
             color: "#F3F1E8",
@@ -162,7 +166,6 @@ export function SearchOverlay() {
           ⌘K to open · ESC to close
         </div>
       </div>
-    </div>,
-    document.body
+    </div>
   );
 }

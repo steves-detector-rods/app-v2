@@ -23,7 +23,7 @@ export function Nav() {
       style={{ background: "#0A0B10" }}
     >
       <div
-        className="mx-auto flex items-center gap-6"
+        className="mx-auto flex items-center justify-between gap-6"
         style={{ maxWidth: 1440, padding: "0 24px", height: 72 }}
       >
         <Link href="/" className="flex items-center gap-2.5">
@@ -56,60 +56,62 @@ export function Nav() {
           </div>
         </Link>
 
-        <nav className="hidden ml-auto items-center gap-1 md:flex">
-          <NavItem
-            label="Shop by Detector"
-            hasMega
-            onMouseEnter={() => setMega("detector")}
-            active={mega === "detector"}
-          />
-          <NavItem
-            label="Products"
-            hasMega
-            onMouseEnter={() => setMega("products")}
-            active={mega === "products"}
-          />
-          <NavItem
-            label="CarbonPro"
-            href="/carbonpro"
-            active={pathname === "/carbonpro"}
-          />
-          <NavItem
-            label="Find Your Shaft"
-            href="/find-your-shaft"
-            accent
-            active={pathname === "/find-your-shaft"}
-          />
-          <NavItem label="About" href="/about" active={pathname === "/about"} />
-          <NavItem label="Blog" href="/blog" active={pathname?.startsWith("/blog") ?? false} />
-        </nav>
+        <div className="flex items-center gap-1">
+          <nav className="hidden items-center gap-1 lg:flex">
+            <NavItem
+              label="Shop by Detector"
+              hasMega
+              onMouseEnter={() => setMega("detector")}
+              active={mega === "detector"}
+            />
+            <NavItem
+              label="Products"
+              hasMega
+              onMouseEnter={() => setMega("products")}
+              active={mega === "products"}
+            />
+            <NavItem
+              label="CarbonPro"
+              href="/carbonpro"
+              active={pathname === "/carbonpro"}
+            />
+            <NavItem
+              label="Find Your Shaft"
+              href="/find-your-shaft"
+              accent
+              active={pathname === "/find-your-shaft"}
+            />
+            <NavItem label="About" href="/about" active={pathname === "/about"} />
+            <NavItem label="Blog" href="/blog" active={pathname?.startsWith("/blog") ?? false} />
+          </nav>
 
-        <div className="flex items-center gap-1 md:ml-2">
-          <IconBtn onClick={openSearch} aria-label="Search">
-            <Icon name="search" size={18} />
-          </IconBtn>
-          <IconBtn onClick={openCart} aria-label="Open cart">
-            <Icon name="cart" size={18} />
-            {itemCount > 0 && (
-              <span
-                className="absolute rounded-[8px] font-bold text-center"
-                style={{
-                  top: 6,
-                  right: 4,
-                  background: "#B8452F",
-                  color: "#0A0B10",
-                  fontSize: 10,
-                  padding: "1px 5px",
-                  minWidth: 16,
-                }}
-              >
-                {itemCount}
-              </span>
-            )}
-          </IconBtn>
-          <IconBtn className="md:hidden" onClick={() => setMobileOpen(true)} aria-label="Open menu">
-            <Icon name="menu" size={18} />
-          </IconBtn>
+          <div className="flex items-center gap-1 lg:ml-2">
+            <IconBtn onClick={openSearch} aria-label="Search">
+              <Icon name="search" size={18} />
+            </IconBtn>
+            <IconBtn onClick={openCart} aria-label="Open cart">
+              <Icon name="cart" size={18} />
+              {itemCount > 0 && (
+                <span
+                  className="absolute rounded-[8px] font-bold text-center"
+                  style={{
+                    top: 6,
+                    right: 4,
+                    background: "#B8452F",
+                    color: "#0A0B10",
+                    fontSize: 10,
+                    padding: "1px 5px",
+                    minWidth: 16,
+                  }}
+                >
+                  {itemCount}
+                </span>
+              )}
+            </IconBtn>
+            <IconBtn className="lg:hidden" onClick={() => setMobileOpen(true)} aria-label="Open menu">
+              <Icon name="menu" size={18} />
+            </IconBtn>
+          </div>
         </div>
       </div>
 
@@ -148,7 +150,7 @@ function NavItem({ label, href, hasMega, accent, active, onMouseEnter, onClick }
       onClick={handleClick}
       className={clsx(
         "flex items-center gap-1.5 font-medium uppercase cursor-pointer relative",
-        "text-[12px] tracking-[0.08em]",
+        "text-[12px] tracking-meta",
         "px-3.5 py-2.5"
       )}
       style={{
